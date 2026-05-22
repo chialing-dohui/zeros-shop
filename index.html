@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>小玲の運動系列選品</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --lavender: #cfbedd;
+    --lavender-light: #e4d8ed;
+    --lavender-deep: #a890c0;
+    --cream: #f3ebdd;
+    --cream-light: #faf5ea;
+    --ink: #1a1a1a;
+    --muted: #7a7a7a;
+    --line: #d8cdb8;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Manrope', 'Noto Sans TC', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--cream-light);
+    min-height: 100vh;
+  }
+
+  /* === HERO === */
+  .hero {
+    background: var(--lavender);
+    padding: 48px 40px 32px;
+    position: relative;
+    border-bottom: 1px solid var(--ink);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .hero h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(40px, 7vw, 80px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -2px;
+  }
+  .hero h1 em {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -1px;
+  }
+  .brand-card {
+    border: 1px solid var(--ink);
+    padding: 10px 14px;
+    text-align: right;
+    background: transparent;
+  }
+  .brand-card .brand {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  .brand-card .brand-sub {
+    font-size: 10px;
+    color: var(--ink);
+    margin-top: 2px;
+    letter-spacing: 1px;
+  }
+  .hero-meta {
+    margin-top: 40px;
+    max-width: 640px;
+    font-size: 14px;
+    color: var(--ink);
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+  .hero-meta .item {
+    display: block;
+    margin-bottom: 6px;
+  }
+  .hero-meta .item:last-child { margin-bottom: 0; }
+  .hero-meta .item::before {
+    content: '→ ';
+    color: var(--ink);
+    margin-right: 6px;
+  }
+  .hero-meta .item.bullet::before { content: ''; margin-right: 0; }
+  .hero-meta .item.bullet {
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 28px;
+    padding: 14px 28px;
+    background: var(--ink);
+    color: var(--cream);
+    border: 1px solid var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+  .hero-cta:hover {
+    background: transparent;
+    color: var(--ink);
+  }
+  .hero-cta .arrow {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.2s;
+  }
+  .hero-cta:hover .arrow { transform: translateX(4px); }
+
+  /* === 區段 === */
+  .section {
+    padding: 56px 40px;
+    border-bottom: 1px solid var(--ink);
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    position: relative;
+  }
+  .section-label {
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+  }
+  .section-label h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -1.5px;
+    margin-bottom: 14px;
+  }
+  .section-label h2 em {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.5px;
+  }
+  .section-label .desc {
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 240px;
+    line-height: 1.6;
+  }
+  .section-num {
+    position: absolute;
+    bottom: 24px;
+    right: 40px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--ink);
+  }
+
+  @media (max-width: 760px) {
+    .hero { padding: 36px 24px 24px; }
+    .hero-meta { margin-top: 40px; gap: 20px; }
+    .section {
+      padding: 40px 24px;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .section-label { position: static; }
+    .section-num { position: static; margin-top: 20px; text-align: right; }
+  }
+
+  /* === 產品卡 === */
+  .product {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 32px;
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .product:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  @media (max-width: 600px) {
+    .product {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  .product-photo {
+    background: var(--lavender-light);
+    border: 1px solid var(--ink);
+    aspect-ratio: 4 / 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-photo::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px dashed var(--ink);
+    opacity: 0.3;
+  }
+  .product-photo .photo-tag {
+    position: absolute;
+    bottom: 8px; left: 8px;
+    font-size: 9px;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 2px 6px;
+    letter-spacing: 1px;
+    z-index: 2;
+  }
+  .product-photo-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 1;
+    transition: opacity 0.2s;
+  }
+  .product-photo-img.error { display: none; }
+
+  /* 縮圖列 */
+  .product-photo-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .product-thumbs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .product-thumb {
+    width: 52px;
+    aspect-ratio: 4/5;
+    border: 1px solid var(--ink);
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 0.55;
+    transition: all 0.15s;
+    background: var(--lavender-light);
+    position: relative;
+  }
+  .product-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .product-thumb:hover { opacity: 0.9; }
+  .product-thumb.active {
+    opacity: 1;
+    outline: 2px solid var(--ink);
+    outline-offset: -2px;
+  }
+  .product-thumb .thumb-label {
+    position: absolute;
+    bottom: 2px; left: 2px; right: 2px;
+    text-align: center;
+    font-size: 9px;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 1px 0;
+    letter-spacing: 1px;
+    pointer-events: none;
+  }
+
+  .product-detail .badge {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--ink);
+    padding: 3px 10px;
+    border: 1px solid var(--ink);
+    border-radius: 20px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+  .product-detail h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(24px, 3.5vw, 32px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+  }
+  .product-detail h3 em {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .product-detail .name-ch {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+  }
+  .product-detail .price-tag {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .product-detail .price-tag .currency {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-right: 4px;
+  }
+  .product-detail p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+  .product-detail .fit-note {
+    background: var(--lavender-light);
+    border-left: 3px solid var(--lavender-deep);
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--ink);
+    letter-spacing: 0.3px;
+  }
+  .product-detail .fit-note::before {
+    content: '→ 小玲試穿筆記 · ';
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .chip .dot {
+    flex-shrink: 0;
+  }
+
+  /* === 選項 === */
+  .option-block {
+    margin-bottom: 16px;
+  }
+  .option-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .option-label::before { content: '→'; margin-right: 6px; }
+  .option-label .val {
+    font-weight: 400;
+    color: var(--muted);
+    text-transform: none;
+    letter-spacing: 0.5px;
+    font-size: 12px;
+  }
+  .option-label .val::before { content: ''; }
+
+  /* 顏色 chip */
+  .chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .chip {
+    cursor: pointer;
+    padding: 8px 14px;
+    background: transparent;
+    border: 1px solid var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--ink);
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .chip:hover { background: var(--lavender-light); }
+  .chip.active {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .chip.locked {
+    cursor: default;
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .chip .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+  }
+
+  /* 尺寸格 */
+  .size-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    max-width: 360px;
+  }
+  .size-grid.cols-4 { grid-template-columns: repeat(4, 1fr); max-width: 280px; }
+  .size-chip {
+    cursor: pointer;
+    padding: 12px 0;
+    text-align: center;
+    background: transparent;
+    border: 1px solid var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink);
+    transition: all 0.15s;
+    letter-spacing: 1px;
+  }
+  .size-chip:hover { background: var(--lavender-light); }
+  .size-chip.active {
+    background: var(--lavender);
+    color: var(--ink);
+  }
+
+  /* 尺寸表 */
+  .size-chart-toggle {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--ink);
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    color: var(--ink);
+    padding: 4px 0;
+    margin-top: 12px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .size-chart {
+    margin-top: 12px;
+    background: var(--lavender-light);
+    border: 1px solid var(--ink);
+    padding: 16px;
+    display: none;
+    overflow-x: auto;
+  }
+  .size-chart.open { display: block; }
+  .size-chart table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    min-width: 280px;
+  }
+  .size-chart th {
+    text-align: left;
+    padding: 8px 10px;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    text-transform: uppercase;
+  }
+  .size-chart td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+  }
+  .size-chart tr:last-child td { border-bottom: none; }
+  .size-chart td:first-child { font-weight: 700; }
+  .size-chart-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .size-chart-model {
+    font-size: 11px;
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .size-chart-model::before { content: '→ '; }
+  .size-chart-unit {
+    font-size: 10px;
+    color: var(--muted);
+    text-align: right;
+    letter-spacing: 1px;
+    margin-left: auto;
+  }
+  .size-chart table { min-width: 380px; }
+
+  /* 加入購物車 */
+  .add-to-cart {
+    margin-top: 16px;
+    width: 100%;
+    padding: 14px 20px;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: all 0.15s;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+  .add-to-cart .arrow {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1;
+    transition: transform 0.15s;
+  }
+  .add-to-cart:hover {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .add-to-cart:hover .arrow { transform: translateX(4px); }
+  .add-to-cart.added {
+    background: var(--lavender);
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+  .add-to-cart.shake { animation: shake 0.4s; }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+  }
+
+  /* 數量 */
+  .qty-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 14px 0;
+    margin-top: 16px;
+  }
+  .qty-row .label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .qty-row .label::before { content: '→ '; }
+  .qty-control {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid var(--ink);
+  }
+  .qty-btn {
+    width: 32px; height: 32px;
+    background: transparent;
+    border: none;
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+    color: var(--ink);
+    transition: background 0.15s;
+  }
+  .qty-btn:hover { background: var(--lavender); }
+  .qty-input {
+    width: 44px;
+    text-align: center;
+    border: none;
+    border-left: 1px solid var(--ink);
+    border-right: 1px solid var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    background: transparent;
+    color: var(--ink);
+    height: 32px;
+    -moz-appearance: textfield;
+  }
+  .qty-input::-webkit-outer-spin-button,
+  .qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* === 滿額贈 === */
+  .gift-card {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 600px) {
+    .gift-card { grid-template-columns: 1fr; gap: 20px; }
+  }
+  .gift-card.locked .gift-photo,
+  .gift-card.locked .gift-detail .price-tag,
+  .gift-card.locked .chip-group { opacity: 0.4; }
+  .gift-card.locked .color-group .chip { pointer-events: none; }
+  .gift-photo {
+    background: var(--lavender-light);
+    border: 1px solid var(--ink);
+    aspect-ratio: 4 / 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  .gift-photo::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px dashed var(--ink);
+    opacity: 0.3;
+  }
+  .gift-photo .photo-tag {
+    position: absolute;
+    bottom: 8px; left: 8px;
+    font-size: 9px;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 2px 6px;
+    letter-spacing: 1px;
+    z-index: 2;
+  }
+  .gift-photo-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    transition: opacity 0.2s;
+  }
+  .gift-photo-img.error { display: none; }
+  .gift-detail .badge {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--ink);
+    padding: 3px 10px;
+    border: 1px solid var(--ink);
+    border-radius: 20px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+  .gift-detail .badge.unlocked {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .gift-detail h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(24px, 3.5vw, 32px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+  }
+  .gift-detail h3 em {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .gift-detail .name-ch {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+  }
+  .gift-detail .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .gift-detail .price-old {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: line-through;
+  }
+  .gift-detail .price-free {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+  }
+  .gift-detail p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+
+  .gift-progress {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--line);
+  }
+  .gift-progress-bar {
+    height: 8px;
+    background: var(--cream);
+    border: 1px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .gift-progress-bar .fill {
+    height: 100%;
+    background: var(--lavender);
+    width: 0%;
+    transition: width 0.4s ease;
+    position: relative;
+  }
+  .gift-progress-bar .fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(45deg, transparent 0px, transparent 6px, rgba(0,0,0,0.06) 6px, rgba(0,0,0,0.06) 12px);
+  }
+  .gift-progress-label {
+    margin-top: 10px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--ink);
+    display: flex;
+    justify-content: space-between;
+  }
+  .gift-progress-label .status::before { content: '→ '; }
+  .gift-progress-label .amount { font-weight: 700; }
+
+  /* === 訂單總計 === */
+  .summary-content {
+    background: var(--lavender);
+    border: 1px solid var(--ink);
+    padding: 28px;
+  }
+  .order-items {
+    background: transparent;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    min-height: 36px;
+  }
+  .order-items:empty::before {
+    content: '→ Empty cart · 尚未選購';
+    font-size: 12px;
+    color: var(--ink);
+    opacity: 0.6;
+    letter-spacing: 1px;
+  }
+  .order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    font-size: 13px;
+    gap: 10px;
+  }
+  .order-item .desc { color: var(--ink); flex: 1; min-width: 0; }
+  .order-item .desc small {
+    display: inline-block;
+    color: var(--ink);
+    margin-left: 4px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    opacity: 0.7;
+  }
+  .order-item .amt {
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .order-item .remove-btn {
+    background: transparent;
+    border: 1px solid var(--ink);
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--ink);
+    padding: 0;
+    font-family: 'Manrope', sans-serif;
+    line-height: 1;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+  .order-item .remove-btn:hover {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .sum-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .sum-row.total {
+    border-top: 1px solid var(--ink);
+    margin-top: 12px;
+    padding-top: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    align-items: baseline;
+  }
+  .sum-row.total .amount {
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+    letter-spacing: -1px;
+  }
+  .sum-row.total .amount .currency {
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 4px;
+  }
+  .promo-note {
+    border-top: 1px dashed var(--ink);
+    padding-top: 14px;
+    margin-top: 14px;
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--ink);
+    letter-spacing: 0.5px;
+  }
+  .promo-note strong { font-weight: 700; }
+
+  /* 訂購人 */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 600px) {
+    .form-grid { grid-template-columns: 1fr; }
+  }
+  .field { margin-bottom: 16px; }
+  .field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--ink);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .field label::before { content: '→ '; }
+  .field input, .field textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--ink);
+    border-radius: 0;
+    font-size: 14px;
+    font-family: 'Noto Sans TC', sans-serif;
+    background: transparent;
+    color: var(--ink);
+  }
+  .field input:focus, .field textarea:focus {
+    outline: none;
+    background: var(--lavender-light);
+  }
+
+  .submit-btn {
+    width: 100%;
+    margin-top: 16px;
+    padding: 18px;
+    background: var(--ink);
+    color: var(--cream);
+    border: 1px solid var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  .submit-btn:hover {
+    background: var(--lavender);
+    color: var(--ink);
+  }
+  .submit-btn::after { content: '  →'; }
+
+  /* Footer */
+  .footer {
+    padding: 32px 40px;
+    background: var(--lavender);
+    border-top: 1px solid var(--ink);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--ink);
+  }
+  .footer .brand-foot {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+  .footer .brand-foot em {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  @media (max-width: 600px) {
+    .footer {
+      padding: 24px;
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-grid">
+        <h1>Zero<em>&rsquo;s</em></h1>
+        <div class="brand-card">
+          <div class="brand">小玲の</div>
+          <div class="brand-sub">運動系列選品<br>Active Selection</div>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <span class="item">本次選品有運動上衣、運動背心、兩件運動短褲,滿額贈送超好看運動髮帶～跟著小玲一起運動吧😍</span>
+        <span class="item bullet">👉 已實穿過去健身、跑步都沒問題!</span>
+        <span class="item bullet">👉 尺寸從 S 到大尺碼 XL 都有</span>
+      </div>
+      <a href="#productList" class="hero-cta">開始選購 · Start Shopping <span class="arrow">→</span></a>
+    </header>
+
+    <!-- 商品由 JS 渲染 -->
+    <div id="productList"></div>
+
+    <!-- 滿額贈 -->
+    <section class="section">
+      <div class="section-label">
+        <h2>Free <em>gift</em></h2>
+        <p class="desc">滿 NT$ 2,200 加贈超好看運動髮帶(黑色、深灰)兩色任選,達標後選你喜歡的顏色!</p>
+      </div>
+      <div>
+        <div class="gift-card locked" id="giftCard">
+          <div class="gift-photo">
+            <span>PHOTO</span>
+            <img class="gift-photo-img" src="images/headband-black.jpg" alt="運動髮帶" onerror="this.classList.add('error')" />
+            <span class="photo-tag">HEADBAND</span>
+          </div>
+          <div class="gift-detail">
+            <span class="badge" id="giftBadge">滿額贈 · Locked</span>
+            <h3>Active <em>Headband</em></h3>
+            <div class="name-ch">運動髮帶 · 兩色任選</div>
+            <div class="price-row">
+              <span class="price-old">NT$ 280</span>
+              <span class="price-free">FREE</span>
+            </div>
+            <p>在健身房看到長得很韓的女生戴寬髮帶真是太好看!😍回饋玲友作為滿額贈!</p>
+
+            <div class="option-block">
+              <div class="option-label">Color · 顏色 <span class="val" data-display="gift-color">尚未選擇</span></div>
+              <div class="chip-group color-group" id="giftColors">
+                <div class="chip" data-color="黑色" data-photo="images/headband-black.jpg"><span class="dot" style="background:#1a1a1a"></span>黑色</div>
+                <div class="chip" data-color="深灰" data-photo="images/headband-gray.jpg"><span class="dot" style="background:#5a5a5a"></span>深灰</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gift-progress">
+          <div class="gift-progress-bar"><div class="fill" id="giftFill"></div></div>
+          <div class="gift-progress-label">
+            <span class="status" id="giftStatus">再消費 NT$ 2,200 即可解鎖</span>
+            <span class="amount" id="giftAmount">NT$ 0 / NT$ 2,200</span>
+          </div>
+        </div>
+      </div>
+      <div class="section-num">05</div>
+    </section>
+
+    <!-- 結算 -->
+    <section class="section" id="summary-section">
+      <div class="section-label">
+        <h2>Order <em>summary</em></h2>
+        <p class="desc">確認你的選購明細,系統會自動計算優惠折扣與運費。</p>
+      </div>
+      <div>
+        <div class="summary-content">
+          <div class="order-items" id="orderItems"></div>
+          <div class="sum-row">
+            <span>SUBTOTAL · 小計</span>
+            <span id="subtotal">NT$ 0</span>
+          </div>
+          <div class="sum-row">
+            <span>DISCOUNT · 折扣</span>
+            <span id="discount">- NT$ 0</span>
+          </div>
+          <div class="sum-row">
+            <span>SHIPPING · 運費</span>
+            <span id="shipping">NT$ 0</span>
+          </div>
+          <div class="sum-row total">
+            <span>TOTAL</span>
+            <span class="amount" id="total"><span class="currency">NT$</span>0</span>
+          </div>
+          <div class="promo-note">
+            <strong>→</strong> 滿 2 件 <strong>9 折</strong>・滿 3 件 <strong>85 折</strong><br>
+            <strong>→</strong> 滿 NT$ 2,000 <strong>免運費</strong>(未滿 +$80)
+          </div>
+        </div>
+      </div>
+      <div class="section-num">06</div>
+    </section>
+
+    <!-- 訂購人 -->
+    <section class="section">
+      <div class="section-label">
+        <h2>Your <em>details</em></h2>
+        <p class="desc">填寫聯絡與配送資訊,我們會在 1-2 個工作天內聯繫確認。</p>
+      </div>
+      <div>
+        <div class="form-grid">
+          <div class="field">
+            <label>Name · 姓名</label>
+            <input type="text" placeholder="你的名字" />
+          </div>
+          <div class="field">
+            <label>Phone · 電話</label>
+            <input type="tel" placeholder="0912 345 678" />
+          </div>
+          <div class="field">
+            <label>Address · 地址</label>
+            <input type="text" placeholder="台北市..." />
+          </div>
+          <div class="field">
+            <label>Note · 備註</label>
+            <input type="text" placeholder="想跟我們說的話" />
+          </div>
+        </div>
+        <button class="submit-btn" onclick="alert('訂單已送出')">Place order</button>
+      </div>
+      <div class="section-num">07</div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div>
+        <div class="brand-foot">小玲の運動系列選品 <em>—</em> Active Selection</div>
+        <div style="margin-top:6px; font-size: 11px;">© 2025 · All rights reserved</div>
+      </div>
+      <div style="text-align: right;">
+        → hello@xiaoling.shop<br>
+        → instagram @xiaoling.active<br>
+        → Taipei, Taiwan
+      </div>
+    </footer>
+
+  </div>
+
+<script>
+  const products = [
+    {
+      id: 'vest',
+      enName: 'Color-Block Tank',
+      chName: '撞色滾邊運動背心',
+      desc: '美式復古的滾邊設計,配色都超級好看,羅紋面料有挺度,整件很有彈力十足,貼身不勒,細肩的位置把肩膀襯托的剛剛好,背後還有大 U 領,做力量訓練活動自如,動態跑步也很舒服!大推!',
+      price: 680,
+      cardNum: '01',
+      badge: 'New',
+      photoLabel: 'TANK / 01',
+      sizeNote: '小玲平時穿 L,這款穿 XL 舒適(藍撞咖),穿 L 合身適合運動(咖色)',
+      colors: [
+        { name: '藍撞咖', swatch: 'linear-gradient(90deg, #a5c5dc 50%, #7a5a3a 50%)', photo: 'images/vest-1.jpg', photoBack: 'images/vest-1-back.jpg' },
+        { name: '咖色', swatch: '#a88968', photo: 'images/vest-2.jpg' },
+        { name: '白撞紅', swatch: 'linear-gradient(90deg, #f5f5f0 50%, #c83838 50%)', photo: 'images/vest-3.jpg' },
+        { name: '黑撞白', swatch: 'linear-gradient(90deg, #1a1a1a 50%, #f5f5f0 50%)', photo: 'images/vest-4.jpg' },
+        { name: '藍撞紅', swatch: 'linear-gradient(90deg, #1f3a6b 50%, #c83838 50%)', photo: 'images/vest-5.jpg' },
+      ],
+      sizes: ['S', 'M', 'L', 'XL'],
+      sizeChart: {
+        headers: ['Size', '胸圍', '下擺', '衣長', '建議身形'],
+        rows: [
+          ['S','32','28','32','小胸 / 偏合身'],
+          ['M','34','30','33','一般女生尺寸'],
+          ['L','36','32','34','喜歡舒適感或胸圍較豐滿'],
+          ['XL','38','34','35','大胸 / 喜歡不勒感']
+        ],
+        modelNote: '小玲 154cm / 60kg 穿 XL'
+      }
+    },
+    {
+      id: 'top',
+      enName: 'Sport Tee',
+      chName: '運動上衣',
+      desc: '吸汗排濕短袖,純粹素面剪裁,日常與訓練皆百搭。',
+      price: 780,
+      cardNum: '02',
+      badge: 'Signature',
+      photoLabel: 'TEE / 02',
+      colors: [
+        { name: '經典黑', swatch: '#1a1a1a' },
+        { name: '純淨白', swatch: '#f5f5f0' },
+      ],
+      sizes: ['XS', 'S', 'M', 'L', 'XL'],
+      sizeChart: {
+        headers: ['Size', '胸圍', '衣長', '袖長'],
+        rows: [['XS','80','60','18'],['S','84','62','19'],['M','88','64','20'],['L','92','66','21'],['XL','96','68','22']]
+      }
+    },
+    {
+      id: 'shorts-a',
+      enName: 'Slim Shorts',
+      chName: '運動短褲・款式 A',
+      desc: '高腰修身款,瑜珈、健身、跑步皆適合。僅推出經典黑。',
+      price: 680,
+      cardNum: '03',
+      badge: 'Black only',
+      photoLabel: 'SHORTS / A',
+      colorLocked: true,
+      colors: [{ name: '經典黑', swatch: '#1a1a1a' }],
+      sizes: ['S', 'M', 'L', 'XL'],
+      sizeChart: {
+        headers: ['Size', '腰圍', '臀圍', '褲長'],
+        rows: [['S','64','88','32'],['M','68','92','33'],['L','72','96','34'],['XL','76','100','35']]
+      }
+    },
+    {
+      id: 'shorts-b',
+      enName: 'Easy Shorts',
+      chName: '運動短褲・款式 B',
+      desc: '寬鬆運動款,排汗透氣,日常居家也適穿。僅推出經典黑。',
+      price: 680,
+      cardNum: '04',
+      badge: 'Black only',
+      photoLabel: 'SHORTS / B',
+      colorLocked: true,
+      colors: [{ name: '經典黑', swatch: '#1a1a1a' }],
+      sizes: ['S', 'M', 'L', 'XL'],
+      sizeChart: {
+        headers: ['Size', '腰圍', '臀圍', '褲長'],
+        rows: [['S','66','92','36'],['M','70','96','37'],['L','74','100','38'],['XL','78','104','39']]
+      }
+    },
+  ];
+
+  const productList = document.getElementById('productList');
+
+  function renderProduct(p, idx) {
+    const defaultSizeIdx = p.sizes.length < 5 ? 0 : 1;
+    const colorsHtml = p.colors.map((c, i) => {
+      const cls = p.colorLocked ? 'chip locked active' : (i === 0 ? 'chip active' : 'chip');
+      const photoAttr = c.photo ? ` data-photo="${c.photo}"` : '';
+      return `<div class="${cls}" data-color="${c.name}"${photoAttr}><span class="dot" style="background:${c.swatch}"></span>${c.name}</div>`;
+    }).join('');
+
+    const sizesHtml = p.sizes.map((s, i) =>
+      `<div class="size-chip ${i === defaultSizeIdx ? 'active' : ''}" data-size="${s}">${s}</div>`
+    ).join('');
+
+    const chartHeaders = p.sizeChart.headers.map(h => `<th>${h}</th>`).join('');
+    const chartRows = p.sizeChart.rows.map(row =>
+      `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`
+    ).join('');
+
+    const sizeColsClass = p.sizes.length === 4 ? 'cols-4' : '';
+
+    // 第一個商品做為「Products」總標的開頭
+    const sectionLabel = idx === 0 ? `
+      <div class="section-label">
+        <h2>Products <em>—</em><br>挑選你的</h2>
+        <p class="desc">四款基本品項,從背心、短袖到兩款短褲。每件都附完整尺寸對照表。</p>
+      </div>
+    ` : `<div class="section-label" style="${idx === 0 ? '' : 'visibility: hidden;'}"></div>`;
+
+    return `
+      <section class="section product-section">
+        ${idx === 0 ? `
+          <div class="section-label">
+            <h2>Products <em>—</em><br>商品總覽</h2>
+          </div>` : `<div class="section-label" aria-hidden="true"></div>`}
+        <div>
+          <div class="product" data-product-id="${p.id}">
+            <div class="product-photo-wrap">
+              <div class="product-photo">
+                <span>PHOTO</span>
+                ${p.colors[0].photo ? `<img class="product-photo-img" src="${p.colors[0].photo}" alt="${p.chName}" onerror="this.classList.add('error')" />` : ''}
+                <span class="photo-tag">${p.photoLabel}</span>
+              </div>
+              <div class="product-thumbs"></div>
+            </div>
+            <div class="product-detail">
+              <span class="badge">${p.badge}</span>
+              <h3>${p.enName}</h3>
+              <div class="name-ch">${p.chName}</div>
+              <div class="price-tag"><span class="currency">NT$</span>${p.price.toLocaleString()}</div>
+              <p>${p.desc}</p>
+              ${p.sizeNote ? `<div class="fit-note">${p.sizeNote}</div>` : ''}
+
+              <div class="option-block">
+                <div class="option-label">Color<span class="val" data-display="color">${p.colors[0].name}</span></div>
+                <div class="chip-group color-group">${colorsHtml}</div>
+              </div>
+
+              <div class="option-block">
+                <div class="option-label">Size<span class="val" data-display="size">${p.sizes[defaultSizeIdx]}</span></div>
+                <div class="size-grid ${sizeColsClass} size-group">${sizesHtml}</div>
+                <button type="button" class="size-chart-toggle">View size chart →</button>
+                <div class="size-chart">
+                  <table>
+                    <thead><tr>${chartHeaders}</tr></thead>
+                    <tbody>${chartRows}</tbody>
+                  </table>
+                  <div class="size-chart-footer">
+                    ${p.sizeChart.modelNote ? `<span class="size-chart-model">${p.sizeChart.modelNote}</span>` : ''}
+                    <span class="size-chart-unit">Unit: cm</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="qty-row">
+                <span class="label">Quantity</span>
+                <div class="qty-control">
+                  <button type="button" class="qty-btn qty-minus">−</button>
+                  <input type="number" min="1" value="1" class="qty-input qty" data-price="${p.price}" />
+                  <button type="button" class="qty-btn qty-plus">+</button>
+                </div>
+              </div>
+
+              <button type="button" class="add-to-cart">加入購物車 <span class="arrow">→</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="section-num">${p.cardNum}</div>
+      </section>
+    `;
+  }
+
+  productList.innerHTML = products.map((p, i) => renderProduct(p, i)).join('');
+
+  // === 購物車狀態 ===
+  let cart = []; // { productId, name, color, size, qty, price }
+
+  // === Gallery 工具函式 ===
+  function getColorPhotos(color) {
+    const photos = [];
+    if (color.photo) photos.push({ src: color.photo, label: '正面' });
+    if (color.photoBack) photos.push({ src: color.photoBack, label: '背面' });
+    return photos;
+  }
+
+  function renderThumbs(card, photos) {
+    const thumbs = card.querySelector('.product-thumbs');
+    if (!thumbs) return;
+    if (photos.length <= 1) {
+      thumbs.innerHTML = '';
+      return;
+    }
+    thumbs.innerHTML = photos.map((p, i) =>
+      `<div class="product-thumb ${i === 0 ? 'active' : ''}" data-photo="${p.src}">
+        <img src="${p.src}" alt="${p.label}" onerror="this.parentElement.style.display='none'" />
+        <span class="thumb-label">${p.label}</span>
+      </div>`
+    ).join('');
+    thumbs.querySelectorAll('.product-thumb').forEach(t => {
+      t.addEventListener('click', () => {
+        thumbs.querySelectorAll('.product-thumb').forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+        const img = card.querySelector('.product-photo-img');
+        if (img) {
+          img.classList.remove('error');
+          img.src = t.dataset.photo;
+        }
+      });
+    });
+  }
+
+  function updateProductGallery(card, color) {
+    const photos = getColorPhotos(color);
+    if (photos.length > 0) {
+      const img = card.querySelector('.product-photo-img');
+      if (img) {
+        img.classList.remove('error');
+        img.src = photos[0].src;
+      }
+    }
+    renderThumbs(card, photos);
+  }
+
+  document.querySelectorAll('.product').forEach(card => {
+    // 顏色切換(只更新顯示,不直接影響購物車)
+    card.querySelectorAll('.color-group .chip:not(.locked)').forEach(chip => {
+      chip.addEventListener('click', () => {
+        card.querySelectorAll('.color-group .chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        card.querySelector('[data-display="color"]').textContent = chip.dataset.color;
+        // 切換主圖與縮圖
+        const product = products.find(p => p.id === card.dataset.productId);
+        if (product) {
+          const color = product.colors.find(c => c.name === chip.dataset.color);
+          if (color) updateProductGallery(card, color);
+        }
+      });
+    });
+    // 尺寸切換
+    card.querySelectorAll('.size-group .size-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        card.querySelectorAll('.size-group .size-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        card.querySelector('[data-display="size"]').textContent = chip.dataset.size;
+      });
+    });
+    // 尺寸表展開
+    card.querySelector('.size-chart-toggle').addEventListener('click', (e) => {
+      const chart = card.querySelector('.size-chart');
+      chart.classList.toggle('open');
+      e.target.textContent = chart.classList.contains('open') ? 'Hide size chart ↑' : 'View size chart →';
+    });
+    // 數量加減(最小 1,只調整待加入數量,不影響購物車)
+    const qtyInput = card.querySelector('.qty');
+    card.querySelector('.qty-minus').addEventListener('click', () => {
+      qtyInput.value = Math.max(1, (parseInt(qtyInput.value) || 1) - 1);
+    });
+    card.querySelector('.qty-plus').addEventListener('click', () => {
+      qtyInput.value = (parseInt(qtyInput.value) || 0) + 1;
+    });
+    qtyInput.addEventListener('input', () => {
+      const v = parseInt(qtyInput.value);
+      if (isNaN(v) || v < 1) qtyInput.value = 1;
+    });
+    // 加入購物車
+    card.querySelector('.add-to-cart').addEventListener('click', () => addToCart(card));
+
+    // 初始 gallery(以第一個顏色為基準)
+    const product = products.find(p => p.id === card.dataset.productId);
+    if (product && product.colors[0]) {
+      updateProductGallery(card, product.colors[0]);
+    }
+  });
+
+  function addToCart(card) {
+    const productId = card.dataset.productId;
+    const product = products.find(p => p.id === productId);
+    const color = card.querySelector('[data-display="color"]').textContent;
+    const size = card.querySelector('[data-display="size"]').textContent;
+    const qty = parseInt(card.querySelector('.qty').value) || 0;
+    const btn = card.querySelector('.add-to-cart');
+
+    if (qty <= 0) {
+      btn.classList.add('shake');
+      setTimeout(() => btn.classList.remove('shake'), 400);
+      return;
+    }
+
+    // 合併相同 productId + color + size 的項目
+    const existing = cart.find(item =>
+      item.productId === productId && item.color === color && item.size === size
+    );
+    if (existing) {
+      existing.qty += qty;
+    } else {
+      cart.push({
+        productId,
+        name: product.enName,
+        chName: product.chName,
+        color, size, qty,
+        price: product.price,
+      });
+    }
+
+    // 重置數量為 1
+    card.querySelector('.qty').value = 1;
+
+    // 視覺回饋
+    btn.classList.add('added');
+    btn.innerHTML = '✓ 已加入購物車';
+    setTimeout(() => {
+      btn.classList.remove('added');
+      btn.innerHTML = '加入購物車 <span class="arrow">→</span>';
+    }, 1200);
+
+    calc();
+  }
+
+  function removeCartItem(idx) {
+    cart.splice(idx, 1);
+    calc();
+  }
+
+  const subtotalEl = document.getElementById('subtotal');
+  const discountEl = document.getElementById('discount');
+  const shippingEl = document.getElementById('shipping');
+  const totalEl = document.getElementById('total');
+  const orderItemsEl = document.getElementById('orderItems');
+
+  // === 贈品邏輯 ===
+  const GIFT_THRESHOLD = 2200;
+  const giftCard = document.getElementById('giftCard');
+  const giftBadge = document.getElementById('giftBadge');
+  const giftFill = document.getElementById('giftFill');
+  const giftStatus = document.getElementById('giftStatus');
+  const giftAmount = document.getElementById('giftAmount');
+  const giftColorVal = giftCard.querySelector('[data-display="gift-color"]');
+  let selectedGiftColor = null;
+
+  document.querySelectorAll('#giftColors .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      if (giftCard.classList.contains('locked')) return;
+      document.querySelectorAll('#giftColors .chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      selectedGiftColor = chip.dataset.color;
+      giftColorVal.textContent = selectedGiftColor;
+      // 切換主圖
+      if (chip.dataset.photo) {
+        const img = document.querySelector('.gift-photo-img');
+        if (img) {
+          img.classList.remove('error');
+          img.src = chip.dataset.photo;
+        }
+      }
+      calc();
+    });
+  });
+
+  function fmt(n) { return 'NT$ ' + n.toLocaleString(); }
+
+  function calc() {
+    // 從 cart 計算小計與總件數
+    let subtotal = 0, totalQty = 0;
+    cart.forEach(item => {
+      subtotal += item.price * item.qty;
+      totalQty += item.qty;
+    });
+
+    // 折扣 + 運費
+    let rate = 0;
+    if (totalQty >= 3) rate = 0.15;
+    else if (totalQty >= 2) rate = 0.10;
+    const discount = Math.round(subtotal * rate);
+    const afterDiscount = subtotal - discount;
+    const shipping = (subtotal > 0 && afterDiscount < 2000) ? 80 : 0;
+    const total = afterDiscount + shipping;
+
+    // === 贈品邏輯 ===
+    const eligible = afterDiscount >= GIFT_THRESHOLD;
+    const progress = Math.min(100, Math.round((afterDiscount / GIFT_THRESHOLD) * 100));
+    giftFill.style.width = progress + '%';
+    giftAmount.textContent = `NT$ ${afterDiscount.toLocaleString()} / NT$ ${GIFT_THRESHOLD.toLocaleString()}`;
+
+    if (eligible) {
+      giftCard.classList.remove('locked');
+      giftBadge.textContent = '滿額贈 · Unlocked';
+      giftBadge.classList.add('unlocked');
+      if (selectedGiftColor) {
+        giftStatus.textContent = `已解鎖 · 贈品顏色:${selectedGiftColor}`;
+      } else {
+        giftStatus.textContent = '已解鎖!請選擇喜歡的顏色 ↑';
+      }
+    } else {
+      giftCard.classList.add('locked');
+      giftBadge.textContent = '滿額贈 · Locked';
+      giftBadge.classList.remove('unlocked');
+      const need = GIFT_THRESHOLD - afterDiscount;
+      giftStatus.textContent = afterDiscount > 0
+        ? `再消費 NT$ ${need.toLocaleString()} 即可解鎖`
+        : '再消費 NT$ 2,200 即可解鎖';
+      if (selectedGiftColor) {
+        document.querySelectorAll('#giftColors .chip').forEach(c => c.classList.remove('active'));
+        selectedGiftColor = null;
+        giftColorVal.textContent = '尚未選擇';
+      }
+    }
+
+    // === 訂單明細(每筆 cart 項目單獨一行,可移除) ===
+    let itemsHtml = cart.map((item, idx) =>
+      `<div class="order-item">
+        <span class="desc">${item.name} × ${item.qty} <small>${item.color} / ${item.size}</small></span>
+        <span class="amt">${fmt(item.price * item.qty)}</span>
+        <button class="remove-btn" data-cart-idx="${idx}" title="移除">×</button>
+      </div>`
+    ).join('');
+
+    if (eligible && selectedGiftColor) {
+      itemsHtml += `<div class="order-item">
+        <span class="desc">✦ Active Headband × 1 <small>${selectedGiftColor} · 滿額贈</small></span>
+        <span class="amt">FREE</span>
+      </div>`;
+    }
+    orderItemsEl.innerHTML = itemsHtml;
+
+    // 綁定移除按鈕
+    orderItemsEl.querySelectorAll('.remove-btn[data-cart-idx]').forEach(btn => {
+      btn.addEventListener('click', () => removeCartItem(parseInt(btn.dataset.cartIdx)));
+    });
+
+    subtotalEl.textContent = fmt(subtotal);
+    discountEl.textContent = '- ' + fmt(discount);
+    shippingEl.textContent = shipping === 0 ? (subtotal > 0 ? 'Free' : fmt(0)) : fmt(shipping);
+    totalEl.innerHTML = `<span class="currency">NT$</span>${total.toLocaleString()}`;
+  }
+  calc();
+</script>
+</body>
+</html>

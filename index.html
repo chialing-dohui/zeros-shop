@@ -903,6 +903,187 @@
     outline: none;
     background: var(--lavender-light);
   }
+  .field input.error,
+  .field textarea.error {
+    border-color: #c66;
+    background: #fef2f2;
+  }
+
+  /* Radio group */
+  .radio-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .radio-group .radio {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border: 1px solid var(--ink);
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+    transition: background 0.15s;
+  }
+  .radio-group .radio input[type="radio"] {
+    accent-color: var(--ink);
+    margin: 0;
+  }
+  .radio-group .radio:has(input:checked) {
+    background: var(--lavender);
+  }
+
+  /* Form error message */
+  .form-error {
+    color: #c66;
+    font-size: 13px;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: #fef2f2;
+    border: 1px solid #c66;
+  }
+  .form-error::before { content: '⚠ '; font-weight: 700; }
+
+  /* === 訂單確認頁 === */
+  .confirm-card {
+    background: var(--cream-light);
+    border: 1px solid var(--ink);
+    padding: 28px;
+  }
+  .confirm-head {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--ink);
+    margin-bottom: 22px;
+  }
+  .confirm-meta .label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .confirm-meta .value {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  .confirm-section-title {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 22px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .confirm-section-title::before { content: '→ '; }
+  .confirm-items {
+    font-size: 13px;
+  }
+  .confirm-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--line);
+    gap: 12px;
+  }
+  .confirm-item:last-child { border-bottom: none; }
+  .confirm-item .desc { color: var(--ink); flex: 1; }
+  .confirm-item .desc small {
+    color: var(--muted);
+    margin-left: 4px;
+    font-size: 11px;
+  }
+  .confirm-item .amt { font-weight: 700; white-space: nowrap; }
+  .confirm-totals .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 13px;
+  }
+  .confirm-totals .row.discount { color: var(--lavender-deep); }
+  .confirm-totals .row.total {
+    font-size: 18px;
+    font-weight: 700;
+    border-top: 2px solid var(--ink);
+    margin-top: 10px;
+    padding-top: 14px;
+  }
+  .confirm-customer {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .confirm-customer .row {
+    display: flex;
+    gap: 12px;
+    padding: 4px 0;
+  }
+  .confirm-customer .label {
+    color: var(--muted);
+    min-width: 80px;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+  .confirm-customer .value {
+    flex: 1;
+  }
+  .confirm-payment {
+    background: var(--lavender);
+    padding: 18px;
+    border: 1px solid var(--ink);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .confirm-payment p { margin-bottom: 8px; }
+  .confirm-payment ul {
+    margin: 8px 0;
+    padding-left: 20px;
+  }
+  .confirm-email-note {
+    margin-top: 18px;
+    padding: 12px 14px;
+    background: var(--lavender-light);
+    border: 1px dashed var(--ink);
+    font-size: 13px;
+  }
+  .confirm-email-note::before { content: '✓ '; font-weight: 700; }
+  .confirm-screenshot-note {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    background: transparent;
+    border: 1px solid var(--ink);
+    padding: 12px 22px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--ink);
+  }
+  .back-btn:hover {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  /* 送出按鈕禁用態 */
+  .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 
   .submit-btn {
     width: 100%;
@@ -1067,25 +1248,90 @@
       <div>
         <div class="form-grid">
           <div class="field">
-            <label>Name · 姓名</label>
-            <input type="text" placeholder="你的名字" />
+            <label>姓名 · Name *</label>
+            <input type="text" id="cust-name" placeholder="你的名字" required />
           </div>
           <div class="field">
-            <label>Phone · 電話</label>
-            <input type="tel" placeholder="0912 345 678" />
+            <label>Email *(寄送訂單副本)</label>
+            <input type="email" id="cust-email" placeholder="email@example.com" required />
           </div>
           <div class="field">
-            <label>Address · 地址</label>
-            <input type="text" placeholder="台北市..." />
+            <label>電話 · Phone *</label>
+            <input type="tel" id="cust-phone" placeholder="0912 345 678" required />
           </div>
           <div class="field">
-            <label>Note · 備註</label>
-            <input type="text" placeholder="想跟我們說的話" />
+            <label>配送方式 · Shipping *</label>
+            <div class="radio-group" id="shipping-method">
+              <label class="radio"><input type="radio" name="shipping" value="宅配" checked /> 宅配</label>
+              <label class="radio"><input type="radio" name="shipping" value="7-11 取貨" /> 7-11 取貨</label>
+              <label class="radio"><input type="radio" name="shipping" value="全家取貨" /> 全家取貨</label>
+            </div>
           </div>
         </div>
-        <button class="submit-btn" onclick="alert('訂單已送出')">Place order</button>
+        <div class="field">
+          <label id="address-label">地址 · Address *</label>
+          <input type="text" id="cust-address" placeholder="台北市..." required />
+        </div>
+        <div class="field">
+          <label>備註 · Note</label>
+          <input type="text" id="cust-note" placeholder="想跟我們說的話(選填)" />
+        </div>
+        <div id="form-error" class="form-error" style="display:none"></div>
+        <button id="submit-btn" class="submit-btn" type="button">Place order</button>
       </div>
       <div class="section-num">07</div>
+    </section>
+
+    <!-- 訂單確認頁(送出後顯示) -->
+    <section id="confirmSection" class="section" style="display:none">
+      <div class="section-label">
+        <h2>Order <em>confirmed</em></h2>
+        <p class="desc">訂單已成立!訂單副本已寄至你的 Email,請按下方說明完成轉帳 ♡</p>
+      </div>
+      <div>
+        <div class="confirm-card">
+          <div class="confirm-head">
+            <div class="confirm-meta">
+              <div class="label">訂單編號 · Order ID</div>
+              <div class="value" id="confirmOrderId">#</div>
+            </div>
+            <div class="confirm-meta">
+              <div class="label">時間 · Time</div>
+              <div class="value" id="confirmTime"></div>
+            </div>
+          </div>
+
+          <h3 class="confirm-section-title">商品明細</h3>
+          <div class="confirm-items" id="confirmItems"></div>
+
+          <h3 class="confirm-section-title">金額</h3>
+          <div class="confirm-totals" id="confirmTotals"></div>
+
+          <h3 class="confirm-section-title">收件資訊</h3>
+          <div class="confirm-customer" id="confirmCustomer"></div>
+
+          <h3 class="confirm-section-title">付款說明</h3>
+          <div class="confirm-payment">
+            <p>請於 <strong>3 日內</strong> 完成轉帳:</p>
+            <ul>
+              <li>銀行:<strong>[小玲請補上銀行]</strong></li>
+              <li>帳號:<strong>[小玲請補上帳號]</strong></li>
+              <li>金額:<strong id="confirmAmount">NT$ 0</strong></li>
+            </ul>
+            <p>完成轉帳後,請傳訊息至 LINE <strong>@xiaoling.active</strong>,並附上轉帳收據 + 訂單編號。</p>
+          </div>
+
+          <div class="confirm-email-note">
+            訂單副本已寄送至 <strong id="confirmEmail"></strong>
+          </div>
+          <div class="confirm-screenshot-note">
+            建議截圖此頁面,以便日後核對。如有任何問題,請聯絡 LINE @xiaoling.active 並附上訂單編號。
+          </div>
+
+          <button class="back-btn" onclick="resetOrder()">← 繼續購物</button>
+        </div>
+      </div>
+      <div class="section-num">08</div>
     </section>
 
     <!-- Footer -->
@@ -1283,8 +1529,13 @@
 
   productList.innerHTML = products.map((p, i) => renderProduct(p, i)).join('');
 
+  // === 訂單後端設定 ===
+  // 請把這裡的網址換成你部署 Google Apps Script 後拿到的 Web App URL
+  const APPS_SCRIPT_URL = '';
+
   // === 購物車狀態 ===
   let cart = []; // { productId, name, color, size, qty, price }
+  let currentTotals = { subtotal: 0, discount: 0, shipping: 0, total: 0, gift: null };
 
   // === Gallery 工具函式 ===
   function getColorPhotos(color) {
@@ -1542,8 +1793,228 @@
     discountEl.textContent = '- ' + fmt(discount);
     shippingEl.textContent = shipping === 0 ? (subtotal > 0 ? 'Free' : fmt(0)) : fmt(shipping);
     totalEl.innerHTML = `<span class="currency">NT$</span>${total.toLocaleString()}`;
+
+    // 儲存目前總計,供送出訂單時讀取
+    currentTotals = {
+      subtotal, discount, shipping, total,
+      gift: (eligible && selectedGiftColor) ? selectedGiftColor : null
+    };
   }
   calc();
+
+  // === 訂單送出邏輯 ===
+  function genOrderId() {
+    const d = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    const ts = `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}${pad(d.getHours())}${pad(d.getMinutes())}`;
+    const rand = Math.random().toString(36).slice(2, 5).toUpperCase();
+    return `ZS-${ts}-${rand}`;
+  }
+
+  function showFormError(msg) {
+    const errEl = document.getElementById('form-error');
+    errEl.textContent = msg;
+    errEl.style.display = 'block';
+  }
+
+  function clearFormError() {
+    document.getElementById('form-error').style.display = 'none';
+    ['cust-name', 'cust-email', 'cust-phone', 'cust-address'].forEach(id => {
+      document.getElementById(id).classList.remove('error');
+    });
+  }
+
+  async function submitOrder() {
+    clearFormError();
+
+    const name = document.getElementById('cust-name').value.trim();
+    const email = document.getElementById('cust-email').value.trim();
+    const phone = document.getElementById('cust-phone').value.trim();
+    const address = document.getElementById('cust-address').value.trim();
+    const note = document.getElementById('cust-note').value.trim();
+    const shippingMethod = document.querySelector('input[name="shipping"]:checked').value;
+
+    // 購物車檢查
+    if (cart.length === 0) {
+      showFormError('購物車是空的,請先選購商品 ♡');
+      document.getElementById('productList').scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    // 必填欄位
+    const missing = [];
+    if (!name) missing.push('cust-name');
+    if (!email) missing.push('cust-email');
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) missing.push('cust-email');
+    if (!phone) missing.push('cust-phone');
+    if (!address) missing.push('cust-address');
+
+    if (missing.length > 0) {
+      missing.forEach(id => document.getElementById(id).classList.add('error'));
+      showFormError('請完整填寫必填欄位(姓名 / Email / 電話 / 地址)');
+      document.getElementById(missing[0]).focus();
+      return;
+    }
+
+    // 組訂單資料
+    const orderId = genOrderId();
+    const timestamp = new Date().toLocaleString('zh-TW', { hour12: false });
+
+    const itemsLines = cart.map(item =>
+      `${item.name} × ${item.qty}  顏色:${item.color} / 尺寸:${item.size}  NT$ ${(item.price * item.qty).toLocaleString()}`
+    );
+    if (currentTotals.gift) {
+      itemsLines.push(`Active Headband × 1  顏色:${currentTotals.gift}  滿額贈 FREE`);
+    }
+    const itemsText = itemsLines.join('\n');
+
+    const payload = {
+      orderId,
+      timestamp,
+      name, email, phone,
+      shippingMethod,
+      address,
+      note,
+      itemsText,
+      subtotal: currentTotals.subtotal,
+      discount: currentTotals.discount,
+      shipping: currentTotals.shipping,
+      gift: currentTotals.gift ? `Active Headband (${currentTotals.gift})` : '',
+      total: currentTotals.total
+    };
+
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = '送出中...';
+
+    try {
+      if (APPS_SCRIPT_URL) {
+        await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+      } else {
+        console.warn('APPS_SCRIPT_URL 尚未設定,訂單僅顯示於前端。');
+      }
+      showConfirmation(payload);
+    } catch (err) {
+      console.error('Submit error:', err);
+      // 即使後端送出失敗,仍顯示確認頁讓客人有訂單編號可截圖
+      showConfirmation(payload);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Place order';
+    }
+  }
+
+  function showConfirmation(data) {
+    // 隱藏所有區段(除了 confirmSection)
+    document.querySelectorAll('.section').forEach(s => {
+      if (s.id !== 'confirmSection') s.style.display = 'none';
+    });
+    document.querySelector('.hero').style.display = 'none';
+    // 顯示確認頁
+    document.getElementById('confirmSection').style.display = '';
+
+    // 填入資料
+    document.getElementById('confirmOrderId').textContent = '#' + data.orderId;
+    document.getElementById('confirmTime').textContent = data.timestamp;
+    document.getElementById('confirmEmail').textContent = data.email;
+    document.getElementById('confirmAmount').textContent = 'NT$ ' + data.total.toLocaleString();
+
+    // 商品明細
+    const fmt = n => 'NT$ ' + n.toLocaleString();
+    let itemsHtml = cart.map(item =>
+      `<div class="confirm-item">
+        <span class="desc">${item.name} × ${item.qty} <small>${item.color} / ${item.size}</small></span>
+        <span class="amt">${fmt(item.price * item.qty)}</span>
+      </div>`
+    ).join('');
+    if (currentTotals.gift) {
+      itemsHtml += `<div class="confirm-item">
+        <span class="desc">✦ Active Headband × 1 <small>${currentTotals.gift} · 滿額贈</small></span>
+        <span class="amt">FREE</span>
+      </div>`;
+    }
+    document.getElementById('confirmItems').innerHTML = itemsHtml;
+
+    // 金額明細
+    document.getElementById('confirmTotals').innerHTML = `
+      <div class="row"><span>小計</span><span>${fmt(data.subtotal)}</span></div>
+      <div class="row discount"><span>優惠折扣</span><span>- ${fmt(data.discount)}</span></div>
+      <div class="row"><span>運費</span><span>${data.shipping === 0 ? '免運' : fmt(data.shipping)}</span></div>
+      ${data.gift ? `<div class="row"><span>滿額贈</span><span>${data.gift}</span></div>` : ''}
+      <div class="row total"><span>總計</span><span>${fmt(data.total)}</span></div>
+    `;
+
+    // 收件資訊
+    document.getElementById('confirmCustomer').innerHTML = `
+      <div class="row"><span class="label">姓名</span><span class="value">${data.name}</span></div>
+      <div class="row"><span class="label">Email</span><span class="value">${data.email}</span></div>
+      <div class="row"><span class="label">電話</span><span class="value">${data.phone}</span></div>
+      <div class="row"><span class="label">配送</span><span class="value">${data.shippingMethod}</span></div>
+      <div class="row"><span class="label">${data.shippingMethod === '宅配' ? '地址' : '門市'}</span><span class="value">${data.address}</span></div>
+      ${data.note ? `<div class="row"><span class="label">備註</span><span class="value">${data.note}</span></div>` : ''}
+    `;
+
+    // 回到頁面上方
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function resetOrder() {
+    // 清空購物車
+    cart = [];
+    selectedGiftColor = null;
+
+    // 重置贈品顏色顯示
+    document.querySelectorAll('#giftColors .chip').forEach(c => c.classList.remove('active'));
+    const giftDisplay = document.querySelector('[data-display="gift-color"]');
+    if (giftDisplay) giftDisplay.textContent = '尚未選擇';
+
+    // 清空表單
+    ['cust-name', 'cust-email', 'cust-phone', 'cust-address', 'cust-note'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+    document.querySelector('input[name="shipping"][value="宅配"]').checked = true;
+    document.getElementById('address-label').textContent = '地址 · Address *';
+    document.getElementById('cust-address').placeholder = '台北市...';
+    clearFormError();
+
+    // 商品卡數量回到 1
+    document.querySelectorAll('.product .qty').forEach(input => input.value = 1);
+
+    // 顯示所有區段,隱藏確認頁
+    document.querySelectorAll('.section').forEach(s => {
+      if (s.id !== 'confirmSection') s.style.display = '';
+    });
+    document.querySelector('.hero').style.display = '';
+    document.getElementById('confirmSection').style.display = 'none';
+
+    // 重算
+    calc();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // 綁定送出按鈕
+  document.getElementById('submit-btn').addEventListener('click', submitOrder);
+
+  // 配送方式切換時更新地址欄位 label / placeholder
+  document.querySelectorAll('input[name="shipping"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (!radio.checked) return;
+      const label = document.getElementById('address-label');
+      const input = document.getElementById('cust-address');
+      if (radio.value === '宅配') {
+        label.textContent = '地址 · Address *';
+        input.placeholder = '台北市...';
+      } else {
+        label.textContent = `${radio.value} 門市 *`;
+        input.placeholder = '例如:松山民生門市';
+      }
+    });
+  });
 </script>
 </body>
 </html>

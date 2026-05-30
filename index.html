@@ -1286,7 +1286,7 @@
     <section id="confirmSection" class="section" style="display:none">
       <div class="section-label">
         <h2>Order <em>confirmed</em></h2>
-        <p class="desc">訂單已成立!訂單副本已寄至你的 Email,請按下方說明完成轉帳 ♡</p>
+        <p class="desc">訂單已成立!請截圖此頁面並依下方說明完成轉帳 ♡</p>
       </div>
       <div>
         <div class="confirm-card">
@@ -1322,10 +1322,10 @@
           </div>
 
           <div class="confirm-email-note">
-            訂單副本已寄送至 <strong id="confirmEmail"></strong>
+            請務必截圖此頁面以便核對訂單 ♡
           </div>
           <div class="confirm-screenshot-note">
-            建議截圖此頁面,以便日後核對。如有任何問題,請聯絡 LINE @xiaoling.active 並附上訂單編號。
+            如有任何問題,請聯絡 LINE <strong>@xiaoling.active</strong>,並附上頁面上方的訂單編號。
           </div>
 
           <button class="back-btn" onclick="resetOrder()">← 繼續購物</button>
@@ -1921,7 +1921,6 @@
     // 填入資料
     document.getElementById('confirmOrderId').textContent = '#' + data.orderId;
     document.getElementById('confirmTime').textContent = data.timestamp;
-    document.getElementById('confirmEmail').textContent = data.email;
     document.getElementById('confirmAmount').textContent = 'NT$ ' + data.total.toLocaleString();
 
     // 商品明細
